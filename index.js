@@ -20,9 +20,9 @@ app.get("/api/hello", function(req, res) {
 app.get("/api/whoami", function(req, res) {
   //working on it   
   res.json({ 
-    ipaddress: null,
-    language: "",
-    software: ""
+    ipaddress: req.ip,
+    language: req.headers['accept-language'],
+    software: req.get('User-Agent')
   });
   
 });
